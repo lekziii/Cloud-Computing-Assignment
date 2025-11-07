@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+  }
+  
+  .App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card h2 {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .card p {
+    margin-bottom: 1rem;
+    color: #718096;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background: #667eea;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: #5a6fd8;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .feature {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .feature h3 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+  
+  .feature p {
+    font-size: 0.9rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  li {
+    padding: 0.25rem 0;
+    color: #718096;
+  }
+  
+  li:before {
+    content: '•';
+    color: #667eea;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-right: 0.5em;
+  }
+  
+  .footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    margin-top: auto;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .header h1 {
+      font-size: 2rem;
+    }
+    
+    .header p {
+      font-size: 1rem;
+    }
+    
+    .card {
+      padding: 1.5rem;
+    }
+    
+    .button-group {
+      justify-content: center;
+    }
+    
+    .features {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* Add to your existing styles.css */
+.assignment-info {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .assignment-info p {
+    margin: 0.5rem 0;
+    font-weight: 500;
+    font-size: 1.1rem;
+  }
+  
+  .assignment-info p:first-child {
+    color: #ffd700; /* Gold color for name */
+    font-weight: 600;
+  }
+  
+  .assignment-info p:last-child {
+    color: #87ceeb; /* Light blue for assignment */
+    font-weight: 500;
+  }
+  
+  /* Update footer to handle the longer text */
+  .footer p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  /* Responsive design for assignment info */
+  @media (max-width: 768px) {
+    .assignment-info p {
+      font-size: 1rem;
+    }
+    
+    .footer p {
+      font-size: 0.8rem;
+    }
+  }

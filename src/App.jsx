@@ -1,65 +1,58 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import Cart from './components/Cart'
+import Home from './pages/Home'
+import Products from './pages/Products'
+import About from './pages/About'
+import './styles.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cart, setCart] = useState([])
+  const [showCart, setShowCart] = useState(false)
+
+  const addToCart = (product) => {
+    setCart([...cart, { ...product, cartId: Date.now() }])
+  }
+
+  const removeFromCart = (cartId) => {
+    setCart(cart.filter(item => item.cartId !== cartId))
+  }
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price, 0)
+  }
 
   return (
-    <div className="App">
-      <header className="header">
-        <h1>Welcome to My React Website! 🚀</h1>
-        <p>Deployed on Render.com</p>
-        <div className="assignment-info">
-          <p>By ~ Kesab Pokrel</p>
-          <p>Cloud Computing Assignment</p>
-        </div>
-      </header>
-      
-      <main className="main-content">
-        <div className="card">
-          <h2>Counter Example</h2>
-          <p>Count: {count}</p>
-          <div className="button-group">
-            <button onClick={() => setCount(count + 1)}>Increment</button>
-            <button onClick={() => setCount(count - 1)}>Decrement</button>
-            <button onClick={() => setCount(0)}>Reset</button>
-          </div>
-        </div>
+    <Router>
+      <div className="App">
+        <Header 
+          cartCount={cart.length} 
+          totalPrice={getTotalPrice()}
+          onCartClick={() => setShowCart(!showCart)}
+        />
+        
+        {showCart && (
+          <Cart 
+            cart={cart} 
+            onRemove={removeFromCart}
+            total={getTotalPrice()}
+            onClose={() => setShowCart(false)}
+          />
+        )}
 
-        <div className="card">
-          <h2>About This Site</h2>
-          <p>This is a simple React website that demonstrates:</p>
-          <ul>
-            <li>✅ React functional components</li>
-            <li>✅ useState hook</li>
-            <li>✅ Event handling</li>
-            <li>✅ Responsive CSS</li>
-            <li>✅ Easy deployment on Render</li>
-          </ul>
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products addToCart={addToCart} />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
 
-        <div className="card">
-          <h2>Cloud Computing Features</h2>
-          <div className="features">
-            <div className="feature">
-              <h3>☁️ Scalability</h3>
-              <p>Automatically scales with user demand</p>
-            </div>
-            <div className="feature">
-              <h3>🚀 Deployment</h3>
-              <p>Easy deployment on cloud platforms</p>
-            </div>
-            <div className="feature">
-              <h3>💾 Reliability</h3>
-              <p>High availability and uptime</p>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <footer className="footer">
-        <p>By ~ Kesab Pokrel • Cloud Computing Assignment • Deployed on Render.com</p>
-      </footer>
-    </div>
+        <footer className="footer">
+          <p>Tech Galaxy • By ~ Kesab Pokrel • Cloud Computing Assignment</p>
+          <p>Deployed on Render.com • This is a demo e-commerce site</p>
+        </footer>
+      </div>
+    </Router>
   )
 }
 

@@ -1,22 +1,23 @@
 {
-    "name": "cloud-computing-assignment",
+    "name": "tech-galaxy-store",
     "version": "1.0.0",
-    "description": "React website for Cloud Computing Assignment by Kesab Pokrel",
+    "description": "E-commerce website for electronic gadgets - Cloud Computing Assignment by Kesab Pokrel",
     "type": "module",
     "scripts": {
-      "dev": "vite",
-      "build": "vite build",
-      "preview": "vite preview",
-      "start": "vite preview --port 10000"
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "start": "vite preview --port 10000"
     },
     "dependencies": {
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0"
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.30.1"
     },
     "devDependencies": {
-      "@vitejs/plugin-react": "^4.0.3",
-      "vite": "^4.3.9"
+        "@vitejs/plugin-react": "^4.0.3",
+        "vite": "^4.3.9"
     },
     "author": "Kesab Pokrel",
     "license": "MIT"
-  }
+}
